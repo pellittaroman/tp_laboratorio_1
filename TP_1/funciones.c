@@ -53,6 +53,10 @@ long int fact(float A)
     {
         resultado=-1;
     }
+    else if (A<1)
+    {
+        resultado=-2;
+    }
     else
     {
        for (b = A; b > 1; b--)

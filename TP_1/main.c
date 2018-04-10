@@ -41,8 +41,8 @@ int main()
         printf("4- Calcular la resta (A-B)\n");
         printf("5- Calcular la division (A/B)\n");
         printf("6- Calcular la multiplicacion (A*B)\n");
-        printf("7- Calcular el factorial (A!)\n");
-        printf("8- Calcular todas las operacione\n");
+        printf("7- Calcular el factorial (A!)o(B!)\n");
+        printf("8- Calcular todas las operaciones\n");
         printf("9- Salir\n");
         printf("Ingrese opcion: ");
         scanf("%d",&opcion);
@@ -56,15 +56,11 @@ int main()
                 x =pedirNum();
                 flagx=1;
                 printf("\n\n");
-                seguir='s';
-
                 break;
             case 2:
                 y =pedirNum();
                 flagy=1;
                 printf("\n\n");
-                seguir='s';
-
                 break;
             case 3:
                 resultado=suma(x,y);
@@ -73,26 +69,27 @@ int main()
             case 4:
                 resultado=resta(x,y);
                 printf("La resta da: %.3f\n\n",resultado);
-                seguir='s';
                 break;
             case 5:
                 dividir(x,y);
-                seguir='s';
                 break;
             case 6:
                 resultado=multiplica(x,y);
                 printf("La multiplicacion da: %.3f\n\n",resultado);
-                seguir='s';
                 break;
             case 7:
-                printf("Seleccion operando a factorear: 'x' o 'y': ");
+                printf("Seleccion operando a factorear: 'A' o 'B': ");
                 scanf(" %c",&fac);
                 switch(fac)
-                {   case 'x':
+                {   case 'A':
                     fact(x);
                     if(fact(x)==-1)
                     {
                         printf("No se puede mostrar resultado\n");
+                    }
+                    else if(fact(x)==-2)
+                    {
+                        printf("operacion no valida!");
                     }
                     else
                     {
@@ -100,11 +97,15 @@ int main()
                     }
                     printf("\n\n");
                     break;
-                    case 'y':
+                    case 'B':
                     fact(y);
                     if(fact(y)==-1)
                     {
                         printf("No se puede mostrar resultado\n");
+                    }
+                    else if(fact(y)==-2)
+                    {
+                        printf("operacion no valida");
                     }
                     else
                     {
@@ -114,10 +115,9 @@ int main()
                     break;
                     default:
                     printf("ERROR\n");
-                    printf("Seleccion operando a factorear: 'x' o 'y'\n");
+                    printf("Seleccion operando a factorear: 'A' o 'B'\n");
                     scanf(" %c",&fac);
                 }
-                seguir='s';
                 break;
             case 8:
 
@@ -130,6 +130,10 @@ int main()
                     {
                         printf("No se puede mostrar resultado\n\n");
                     }
+                    else if(fact(x)==-2)
+                    {
+                        printf("operacion no valida");
+                    }
                     else
                     {
                         printf("El factorial de %.0f es: %li\n\n",x,fact(x));
@@ -139,11 +143,14 @@ int main()
                     {
                         printf("No se puede mostrar resultado\n");
                     }
+                    else if(fact(y)==-2)
+                    {
+                        printf("operacion no valida");
+                    }
                     else
                     {
                         printf("El factorial de %.0f es: %li\n",y,fact(y));
                     }
-                seguir='s';
                 break;
             case 9:
                 seguir = 'n';

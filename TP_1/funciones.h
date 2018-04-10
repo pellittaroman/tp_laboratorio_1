@@ -33,7 +33,7 @@ float dividir(float,float);
  *
  * \param operando numero 1;
  * \param operando numero 2;
- * \return resultado;
+ * \return printf con el resultado o un printf con un error en caso de division por 0;
  *
  */
 float pedirNum();
@@ -48,7 +48,7 @@ long int fact(float A);
  *
  * \param el caso de ingresar 'x' factorea el primer operando;
  * \param el caso de ingresar 'y' factorea el segundo operando;
- * \return devuelve un factorial o error si el numero es demasiado grande;
+ * \return devuelve el resultado o avisa si el numero es demasiado grande y no lo puede mostrar o nuestra 'operacion no valida en de 0 y numeros negativos;
  *
  */
 
