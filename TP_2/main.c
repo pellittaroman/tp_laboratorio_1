@@ -8,7 +8,7 @@
 
 int main()
 {
-    ePersona personas[20];
+    ePersona personas[TAM];
     inicializarPersona(personas,TAM);
     char seguir='s';
     while(seguir=='s')
