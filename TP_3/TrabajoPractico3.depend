@@ -1,0 +1,20 @@
+# depslib dependency file v1.0
+1527906753 source:c:\users\u505313\desktop\tp_laboratorio_1-master\tp_laboratorio_1-master\trabajopractico3\main.c
+	<stdio.h>
+	<ctype.h>
+	<conio.h>
+	<limits.h>
+	<string.h>
+	<stdlib.h>
+	"functions.c"
+
+1527905588 c:\users\u505313\desktop\tp_laboratorio_1-master\tp_laboratorio_1-master\trabajopractico3\functions.c
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+	<ctype.h>
+	<limits.h>
+	"functions.h"
+
+1527905537 c:\users\u505313\desktop\tp_laboratorio_1-master\tp_laboratorio_1-master\trabajopractico3\functions.h
+
