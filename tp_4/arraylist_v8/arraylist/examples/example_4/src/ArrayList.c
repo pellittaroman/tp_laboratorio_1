@@ -220,13 +220,16 @@ int al_set(ArrayList* this, int index,void* pElement)
 int al_remove(ArrayList* this,int index)
 {
     int returnAux = -1;
+    int ok;
     if(this!=NULL && index>=0)
     {
         if(index<this->size)
         {
-            free(*(this->pElements+index));
-            this->size--;
-            returnAux=0;
+             ok= contract(this,index);
+             if(ok==0)
+            {
+                returnAux=0;
+            }
         }
     }
 
@@ -369,7 +372,7 @@ int al_isEmpty(ArrayList* this)
 
 
 
-/** \brief Remove the item at the given position in the list, and return it.
+/** \brief R , and return it.
  * \param pList ArrayList* Pointer to arrayList
  * \param index int Index of the element
  * \return int Return (NULL) if Error [pList is NULL pointer or invalid index]
@@ -378,11 +381,11 @@ int al_isEmpty(ArrayList* this)
 void* al_pop(ArrayList* this,int index)
 {
     void* returnAux = NULL;
-    int ok;
-    if(this!=NULL&& index<this->size&& index>0)
+
+    if(this!=NULL&& index<this->size&& index>=0)
     {
-         returnAux=*(this->pElements+index);
-          ok= contract(this,index);
+        returnAux=*(this->pElements+index);
+        contract(this,index);
 
 
     }
@@ -402,7 +405,30 @@ void* al_pop(ArrayList* this,int index)
 ArrayList* al_subList(ArrayList* this,int from,int to)
 {
     void* returnAux = NULL;
+    void* aux;
+    int i;
 
+
+    if(this!=NULL)
+    {
+
+
+       if(from<this->size&&to<=this->size)
+    {
+
+        if(from>=0&&to>0&&from<to)
+        {
+            returnAux=al_newArrayList();
+            for(i=from;i<to;i++)
+            {
+               aux= this->get(this,i);
+                this->add(returnAux,aux);
+
+            }
+
+        }
+    }
+    }
     return returnAux ;
 }
 
@@ -419,6 +445,29 @@ ArrayList* al_subList(ArrayList* this,int from,int to)
 int al_containsAll(ArrayList* this,ArrayList* this2)
 {
     int returnAux = -1;
+    int i;
+    int ok;
+    int flag=0;
+    if(this!=NULL&&this2!=NULL)
+    {
+        returnAux=0;
+
+        for(i=0;i<this->size;i++)
+        {
+            ok=this->contains(this,*(this2->pElements+i));
+            if(ok!=1)
+            {
+                flag=1;
+            }
+
+        }
+        if(flag==0)
+        {
+            returnAux=1;
+        }
+    }
+
+
 
     return returnAux;
 }
@@ -506,18 +555,20 @@ int contract(ArrayList* this,int index)
     int returnAux = -1;
 
     int i;
-    if(this!=NULL&&index>=0)
+    if(this!=NULL)
     {
 
-       for(i=index;i<this->size;i++)
+       if(index>=0&&index<this->size)
+       {
+           for(i=index;i<this->size;i++)
            {
                  *(this->pElements+i)=*(this->pElements+(i+1));
                  *(this->pElements+(i+1))=NULL;
            }
-           this->size-1;
+           this->size--;
            returnAux=0;
 
     }
-
+    }
     return returnAux;
 }
