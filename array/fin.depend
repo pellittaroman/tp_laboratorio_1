@@ -1,0 +1,23 @@
+# depslib dependency file v1.0
+1532639643 source:c:\users\u505313\desktop\facultad\c\fin\main.c
+	<stdio.h>
+	<stdlib.h>
+	"ArrayList.h"
+	"funciones.h"
+
+1531437085 c:\users\u505313\desktop\facultad\c\fin\arraylist.h
+
+1532636741 source:c:\users\u505313\desktop\facultad\c\fin\arraylist.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"ArrayList.h"
+
+1532630553 c:\users\u505313\desktop\facultad\c\fin\funciones.h
+
+1532637254 source:c:\users\u505313\desktop\facultad\c\fin\funciones.c
+	<stdio.h>
+	<stdlib.h>
+	"ArrayList.h"
+	"funciones.h"
+
